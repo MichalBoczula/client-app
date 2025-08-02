@@ -1,7 +1,10 @@
 <mat-drawer #drawer class="example-sidenav" mode="side">
     <mat-icon class="arrow" matButton (click)="drawer.toggle()">arrow_back</mat-icon>
     <div class="sidenav-content">
-        <textarea>lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll</textarea>
+        <mat-button-toggle-group vertical [value]="'client'">
+            <mat-button-toggle value="client" active>Client </mat-button-toggle>
+            <mat-button-toggle value="admin">Admin</mat-button-toggle>
+        </mat-button-toggle-group>
     </div>
 </mat-drawer>
 

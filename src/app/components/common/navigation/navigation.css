@@ -16,3 +16,10 @@
     color: white;
     font-size: 30px;
 }
+
+.sidenav-content {
+    padding-top: 10px;
+    width: 120px;
+    display: grid;
+    justify-content: center;
+}

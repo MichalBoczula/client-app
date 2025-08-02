@@ -1,21 +1,16 @@
 <div class="form-container">
-    <form>
-        <label>
-            First Name:
-            <input type="text" [(ngModel)]="client.firstName" name="firstName" />
-        </label>
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="client.firstName" name="firstName" readonly />
+    </mat-form-field>
 
-        <label>
-            Last Name:
-            <input type="text" [(ngModel)]="client.lastName" name="lastName" />
-        </label>
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="client.lastName" name="lastName" readonly />
+    </mat-form-field>
 
-        <label>
-            Bank Account Number:
-            <input type="text" [(ngModel)]="client.bankAccountNumber" name="accountNumber" />
-        </label>
-
-        <button type="submit">Submit</button>
-        <button type="update">update</button>
-    </form>
+    <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Bank Account Number</mat-label>
+        <input matInput [(ngModel)]="client.bankAccountNumber" name="bankAccountNumber" readonly />
+    </mat-form-field>
 </div>
