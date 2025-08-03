@@ -1,4 +1,4 @@
-<div class="form-container" *ngIf="client() as client">
+<div class="form-container" *ngIf="client$ | async as client">
     <mat-form-field appearance="fill" class="full-width">
         <mat-label>First Name</mat-label>
         <input matInput [value]="client?.firstName" name="firstName" readonly />
