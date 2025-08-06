@@ -32,5 +32,5 @@
 </div>
 
 <div>
-    <app-client-debt-component></app-client-debt-component>
+    <app-client-debt-component *ngIf="client()?.debts" [debts]="client().debts"></app-client-debt-component>
 </div>

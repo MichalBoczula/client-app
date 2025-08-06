@@ -1,2 +1,16 @@
-<p>client-debt-component works!</p>
+<div *ngFor="let debt of debts">
+    <mat-card>
+        <mat-card-title>Amount: {{ debt.amount | currency }}</mat-card-title>
+        <mat-card-subtitle>Due Date: {{ debt.dueDate | date }}</mat-card-subtitle>
+
+        <div *ngIf="debt.payments.length > 0">
+            <h4>Payments:</h4>
+            <ul>
+                <li *ngFor="let payment of debt.payments">
+                    {{ payment.amount | currency }} - {{ payment.date | date }} - {{ payment.note }}
+                </li>
+            </ul>
+        </div>
+    </mat-card>
+</div>
 <app-client-payment-component></app-client-payment-component>
