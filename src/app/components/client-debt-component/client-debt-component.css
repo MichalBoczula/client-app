@@ -1,0 +1,37 @@
+.debts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: fit-content;
+}
+
+.debt-card {
+    padding: 16px;
+}
+
+.payment-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.dot {
+    font-weight: bold;
+    color: #999;
+}
+
+.no-payments {
+    color: #aaa;
+    font-style: italic;
+}
+
+.card-header {
+    background-color: #87b0fd;
+    display: flex;
+    justify-content: space-around;
+}
+
+.pill-button {
+    border-radius: 30px;
+}

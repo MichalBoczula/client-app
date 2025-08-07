@@ -1,16 +1,34 @@
-<div *ngFor="let debt of debts">
-    <mat-card>
-        <mat-card-title>Amount: {{ debt.amount | currency }}</mat-card-title>
-        <mat-card-subtitle>Due Date: {{ debt.dueDate | date }}</mat-card-subtitle>
+<div class="debts-container">
+    <mat-card *ngFor="let debt of debts" class="debt-card" appearance="outlined" class="payments-container">
+        <mat-card-header class="card-header">
+            <div>
+                <mat-card-title>💰 {{ debt.amount | currency }}</mat-card-title>
+                <mat-card-subtitle>📅 Due: {{ debt.dueDate | date: 'longDate' }}</mat-card-subtitle>
+            </div>
+            <div>
+                <button matButton="filled" mat-flat-button color="primary" class="pill-button">Pay</button>
+            </div>
+        </mat-card-header>
 
-        <div *ngIf="debt.payments.length > 0">
-            <h4>Payments:</h4>
-            <ul>
-                <li *ngFor="let payment of debt.payments">
-                    {{ payment.amount | currency }} - {{ payment.date | date }} - {{ payment.note }}
-                </li>
-            </ul>
-        </div>
+        <mat-divider></mat-divider>
+
+        <mat-card-content>
+            <h4>Payments</h4>
+            <mat-list *ngIf="debt.payments?.length; else noPayments">
+                <mat-list-item *ngFor="let payment of debt.payments">
+                    <div class="payment-info">
+                        <span>{{ payment.amount | currency }}</span>
+                        <span class="dot">•</span>
+                        <span>{{ payment.date | date: 'mediumDate' }}</span>
+                        <span class="dot">•</span>
+                        <span>{{ payment.note }}</span>
+                    </div>
+                </mat-list-item>
+            </mat-list>
+
+            <ng-template #noPayments>
+                <p class="no-payments">No payments yet</p>
+            </ng-template>
+        </mat-card-content>
     </mat-card>
 </div>
-<app-client-payment-component></app-client-payment-component>

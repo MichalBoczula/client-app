@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ClientPaymentComponent } from "../client-payment-component/client-payment-component";
 import { Debt } from '../../models/debt.model';
 import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from "@angular/material/list";
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-client-debt-component',
-  imports: [ClientPaymentComponent, CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, MatListModule, MatButton],
   providers: [CurrencyPipe, DatePipe],
   templateUrl: './client-debt-component.html',
   styleUrl: './client-debt-component.css',

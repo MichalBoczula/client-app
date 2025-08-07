@@ -2,5 +2,10 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: -120px;
+}
+
+.client-data-container {
+    margin-top: 70px;
+    display: flex;
+    gap: 20px;
 }

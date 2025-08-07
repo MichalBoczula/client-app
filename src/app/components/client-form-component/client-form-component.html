@@ -12,20 +12,22 @@
 
     <ng-template #clientBlock>
         <ng-container *ngIf="client() as client">
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>First Name</mat-label>
-                <input matInput [value]="client.firstName" readonly />
-            </mat-form-field>
+            <div class="client-data-container">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>First Name</mat-label>
+                    <input matInput [value]="client.firstName" readonly />
+                </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Last Name</mat-label>
-                <input matInput [value]="client.lastName" readonly />
-            </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput [value]="client.lastName" readonly />
+                </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Bank Account Number</mat-label>
-                <input matInput [value]="client.bankAccountNumber" readonly />
-            </mat-form-field>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Bank Account Number</mat-label>
+                    <input matInput [value]="client.bankAccountNumber" readonly />
+                </mat-form-field>
+            </div>
         </ng-container>
     </ng-template>
 
