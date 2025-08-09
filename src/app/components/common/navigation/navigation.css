@@ -13,9 +13,21 @@
 }
 
 .arrow {
-    padding: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     color: white;
     font-size: 30px;
+    transition: all linear 0.3s;
+    display: grid;
+}
+
+.arrow:hover {
+    cursor: pointer;
+    color: white;
+}
+
+.backwords {
+    transform: rotate(180deg);
 }
 
 .sidenav-content {
@@ -23,4 +35,8 @@
     width: 120px;
     display: grid;
     justify-content: center;
+}
+
+.navbar-content {
+    padding: 10px;
 }

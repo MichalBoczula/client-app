@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,5 +21,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './navigation.css'
 })
 export class Navigation {
+  readonly isBackwards = signal(false);
 
+  toggleBackwordsClasses(): void {
+    this.isBackwards.update(v => !v);
+  }
 }

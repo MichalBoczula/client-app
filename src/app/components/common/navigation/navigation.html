@@ -1,6 +1,8 @@
 <mat-drawer-container class="navbar-container">
     <div class="navbar-content">
-        <mat-icon class="arrow" matButton (click)="drawer.toggle()">arrow_forward</mat-icon>
+        <mat-icon class="arrow" matButton (click)="drawer.toggle(); toggleBackwordsClasses()"
+            [class.backwords]="isBackwards()">
+            arrow_forward</mat-icon>
     </div>
     <mat-drawer #drawer class="sidenav-container" mode="side">
         <div class="sidenav-content">
