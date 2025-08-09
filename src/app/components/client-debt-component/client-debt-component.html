@@ -7,7 +7,8 @@
                 <mat-card-subtitle>📅 Due: {{ debt.dueDate | date:'longDate' }}</mat-card-subtitle>
             </div>
             <div>
-                <button mat-flat-button color="primary" class="pill-button">Pay</button>
+                <button mat-flat-button color="primary" class="pill-button" (click)="openPayDialog(debt)">
+                    Pay</button>
             </div>
         </mat-card-header>
 

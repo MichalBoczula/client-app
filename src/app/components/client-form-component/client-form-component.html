@@ -44,11 +44,12 @@
         </mat-card-content>
 
         <mat-card-actions align="end">
+            <button matButton="elevated" class="pill-button" mat-flat-button color="primary"
+                (click)="openDebtDialog()">Get Loan 💰 </button>
             <button matButton="elevated" class="pill-button" mat-flat-button color="primary">Edit</button>
         </mat-card-actions>
     </mat-card>
 
-    <app-client-get-loan-component></app-client-get-loan-component>
     @if(client?.debts)
     {
     <app-client-debt-component [debts]="client.debts"></app-client-debt-component>

@@ -12,13 +12,14 @@ import { MatListModule } from "@angular/material/list";
 import { ClientDebtComponent } from "../client-debt-component/client-debt-component";
 import { ClientGetLoanComponent } from "../client-get-loan-component/client-get-loan-component";
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-client-form-component',
   standalone: true,
   templateUrl: './client-form-component.html',
   styleUrl: './client-form-component.css',
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, FormsModule, CommonModule, MatProgressSpinnerModule, MatCardModule, MatListModule, ClientDebtComponent, ClientGetLoanComponent],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, FormsModule, CommonModule, MatProgressSpinnerModule, MatCardModule, MatListModule, ClientDebtComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientFormComponent {
@@ -78,6 +79,19 @@ export class ClientFormComponent {
 
   constructor() {
     // this.clientService.loadClient('ee7223ba-6c39-4a63-ab58-b04ccc3dca8c');
+  }
+
+  private dialog = inject(MatDialog);
+
+  openDebtDialog() {
+    this.dialog.open(ClientGetLoanComponent, {
+      width: 'fit-content',
+      disableClose: true,
+      autoFocus: 'first-tabbable'
+    }).afterClosed().subscribe(result => {
+      if (result) {
+      }
+    });
   }
 }
 

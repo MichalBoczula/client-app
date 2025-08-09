@@ -3,6 +3,7 @@
     justify-content: center;
     flex-direction: column;
     width: fit-content;
+    padding: 20px;
 }
 
 .pay-loan-card-header {
@@ -28,5 +29,5 @@
 
 .pay-loan-card-actions {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
