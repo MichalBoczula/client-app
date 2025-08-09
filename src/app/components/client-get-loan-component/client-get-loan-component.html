@@ -1,16 +1,18 @@
-<section class="loan-container">
-    <mat-form-field>
-        <mat-label>Amount</mat-label>
-        <input matInput type="number" min="500" max="10000">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>DueDate</mat-label>
-        <input matInput>
-    </mat-form-field>
-
-    <div>
-        <div class="save-btn">
-            <button matButton="elevated">Get Loan</button>
-        </div>
-    </div>
-</section>
+<mat-card class="get-loan-card-container" appearance="outlined">
+    <mat-card-header class="get-loan-card-header">
+        <mat-card-title>Get Loan</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="get-loan-card-content">
+        <mat-form-field class="get-loan-card-content-amount">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" min="500" max="10000">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>DueDate</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions class="get-loan-card-actions">
+        <button matButton="elevated" class="pill-button" mat-flat-button color="primary">Get Loan</button>
+    </mat-card-actions>
+</mat-card>

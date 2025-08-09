@@ -1,5 +1,32 @@
-.payment-container {
+.pay-loan-card-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: fit-content;
+}
+
+.pay-loan-card-header {
+    background-color: #87b0fd;
+}
+
+.pay-loan-card-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+}
+
+.pay-loan-card-content-amount {
+    margin-top: 10px;
+}
+
+.pill-button {
+    border-radius: 30px;
+}
+
+.pay-loan-card-actions {
+    display: flex;
+    justify-content: center;
 }

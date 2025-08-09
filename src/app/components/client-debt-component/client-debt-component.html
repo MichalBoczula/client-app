@@ -1,12 +1,13 @@
 <div class="debts-container">
-    <mat-card *ngFor="let debt of debts" class="debt-card" appearance="outlined" class="payments-container">
+    @for (debt of debts; track debt.id ?? $index) {
+    <mat-card class="debt-card payments-container" appearance="outlined">
         <mat-card-header class="card-header">
             <div>
                 <mat-card-title>💰 {{ debt.amount | currency }}</mat-card-title>
-                <mat-card-subtitle>📅 Due: {{ debt.dueDate | date: 'longDate' }}</mat-card-subtitle>
+                <mat-card-subtitle>📅 Due: {{ debt.dueDate | date:'longDate' }}</mat-card-subtitle>
             </div>
             <div>
-                <button matButton="filled" mat-flat-button color="primary" class="pill-button">Pay</button>
+                <button mat-flat-button color="primary" class="pill-button">Pay</button>
             </div>
         </mat-card-header>
 
@@ -14,21 +15,27 @@
 
         <mat-card-content>
             <h4>Payments</h4>
-            <mat-list *ngIf="debt.payments?.length; else noPayments">
-                <mat-list-item *ngFor="let payment of debt.payments">
+
+            @if (debt.payments.length) {
+            <mat-list>
+                @for (payment of debt.payments; track payment.id ?? $index) {
+                <mat-list-item>
                     <div class="payment-info">
                         <span>{{ payment.amount | currency }}</span>
                         <span class="dot">•</span>
-                        <span>{{ payment.date | date: 'mediumDate' }}</span>
+                        <span>{{ payment.date | date:'mediumDate' }}</span>
                         <span class="dot">•</span>
                         <span>{{ payment.note }}</span>
                     </div>
                 </mat-list-item>
+                }
             </mat-list>
-
-            <ng-template #noPayments>
-                <p class="no-payments">No payments yet</p>
-            </ng-template>
+            } @else {
+            <p class="no-payments">No payments yet</p>
+            }
         </mat-card-content>
     </mat-card>
+    } @empty {
+    <p class="no-payments">No debts yet</p>
+    }
 </div>

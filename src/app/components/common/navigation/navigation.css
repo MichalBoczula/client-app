@@ -1,11 +1,12 @@
-.example-container {
+.navbar-container {
     background-color: #1976d2;
     height: 50px;
     width: 100%;
     position: fixed;
+    z-index: 2;
 }
 
-.example-sidenav {
+.sidenav-container {
     height: 100%;
     background-color: #1976d2;
     position: fixed;
