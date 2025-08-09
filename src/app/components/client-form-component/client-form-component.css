@@ -1,11 +1,54 @@
-.form-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+.client-container {
+    padding-top: 70px;
 }
 
-.client-data-container {
-    margin-top: 70px;
+.client-card {
+    width: fit-content;
+    border: 2px solid #87b0fd;
+}
+
+.avatar {
+    background-color: #87b0fd !important;
+}
+
+.divider {
+    background-color: #87b0fd;
+}
+
+.client-information-container {
+    border: 2px solid #87b0fd;
+    width: fit-content;
+}
+
+.client-card-header-avatar {
+    background-color: #87b0fd;
+    color: #1a237e;
+    font-weight: 600;
+    display: grid;
+    place-items: center;
+}
+
+.client-card-content-container {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+}
+
+.client-data {
+    background-color: transparent;
+}
+
+.client-card-content-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.client-data-label {
+    padding-left: 10px;
+    padding-right: 20px;
+    font-family: Roboto, sans-serif;
+}
+
+.pill-button {
+    border-radius: 30px;
 }

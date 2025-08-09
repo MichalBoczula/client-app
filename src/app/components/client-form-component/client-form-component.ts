@@ -6,15 +6,19 @@ import { FormsModule } from '@angular/forms';
 import { ClientService } from '../client.service';
 import { CommonModule } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ClientDebtComponent } from "../client-debt-component/client-debt-component";
 import { ClientInstance } from '../../models/client-instance.model';
+import { MatCardModule } from "@angular/material/card";
+import { MatListModule } from "@angular/material/list";
+import { ClientDebtComponent } from "../client-debt-component/client-debt-component";
+import { ClientGetLoanComponent } from "../client-get-loan-component/client-get-loan-component";
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-client-form-component',
   standalone: true,
   templateUrl: './client-form-component.html',
   styleUrl: './client-form-component.css',
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatProgressSpinnerModule, ClientDebtComponent],
+  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, MatSelectModule, FormsModule, CommonModule, MatProgressSpinnerModule, MatCardModule, MatListModule, ClientDebtComponent, ClientGetLoanComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ClientFormComponent {

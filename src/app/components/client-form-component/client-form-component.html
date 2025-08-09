@@ -1,38 +1,60 @@
-<div class="form-container">
-
-    <div *ngIf="loading(); else content">
-        <mat-spinner></mat-spinner>
+<div class="client-container">
+    @if (loading()) {
+    <mat-spinner></mat-spinner>
+    } @else {
+    @if (error()) {
+    <div class="error">
+        <p>Error loading client: {{ error()?.message || error() }}</p>
     </div>
+    } @else {
+    @if (client(); as client) {
+    <mat-card class="client-information-container">
+        <mat-card-header>
+            <div mat-card-avatar class="client-card-header-avatar">
+                {{ client.firstName[0] }}{{ client.lastName[0] }}
+            </div>
+            <mat-card-title>{{ client.firstName }} {{ client.lastName }}</mat-card-title>
+            <mat-card-subtitle>Client information</mat-card-subtitle>
+        </mat-card-header>
 
-    <ng-template #content>
-        <div *ngIf="error(); else clientBlock" class="error">
-            <p>Error loading client: {{ error()?.message || error() }}</p>
-        </div>
-    </ng-template>
+        <mat-divider class="divider"></mat-divider>
 
-    <ng-template #clientBlock>
-        <ng-container *ngIf="client() as client">
-            <div class="client-data-container">
-                <mat-form-field appearance="fill" class="full-width">
-                    <mat-label>First Name</mat-label>
-                    <input matInput [value]="client.firstName" readonly />
-                </mat-form-field>
-
-                <mat-form-field appearance="fill" class="full-width">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput [value]="client.lastName" readonly />
-                </mat-form-field>
-
-                <mat-form-field appearance="fill" class="full-width">
-                    <mat-label>Bank Account Number</mat-label>
-                    <input matInput [value]="client.bankAccountNumber" readonly />
+        <mat-card-content class="client-card-content-container">
+            <div class="client-card-content-row">
+                <p class="client-data-label">First Name</p>
+                <mat-form-field appearance="fill">
+                    <input matInput [value]="client.firstName" class="client-data" readonly />
                 </mat-form-field>
             </div>
-        </ng-container>
-    </ng-template>
 
-</div>
+            <div class="client-card-content-row">
+                <p class="client-data-label">Last Name</p>
+                <mat-form-field appearance="fill">
+                    <input matInput [value]="client.lastName" class="client-data" readonly />
+                </mat-form-field>
+            </div>
 
-<div>
-    <app-client-debt-component *ngIf="client()?.debts" [debts]="client().debts"></app-client-debt-component>
+            <div class="client-card-content-row">
+                <p class="client-data-label">Bank Account Number</p>
+                <mat-form-field appearance="fill">
+                    <input matInput [value]="client.bankAccountNumber" class="client-data" readonly />
+                </mat-form-field>
+            </div>
+
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+            <button matButton="elevated" class="pill-button" mat-flat-button color="primary">Edit</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <app-client-get-loan-component></app-client-get-loan-component>
+    @if(client?.debts)
+    {
+    <app-client-debt-component [debts]="client.debts"></app-client-debt-component>
+    }
+
+    } @else {
+    <p>Loading client…</p>
+    }}}
 </div>
