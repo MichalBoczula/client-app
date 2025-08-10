@@ -37,17 +37,18 @@ export class ClientFormComponent implements OnInit {
     //e54fe002-9f23-4a39-b85a-05aea5a4fb96
     //ee7223ba-6c39-4a63-ab58-b04ccc3dca8c
     const clientId = this.route.snapshot.paramMap.get('id');
-    console.log(clientId);
     if (clientId) {
       this.clientService.loadClient(clientId);
     }
   }
 
   openDebtDialog() {
+    const id = this.client()?.id;
     this.dialog.open(ClientGetLoanComponent, {
       width: 'fit-content',
       disableClose: true,
-      autoFocus: 'first-tabbable'
+      autoFocus: 'first-tabbable',
+      data: { id: id }
     }).afterClosed().subscribe(result => {
       if (result) {
       }
