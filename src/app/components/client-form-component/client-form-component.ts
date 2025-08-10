@@ -12,7 +12,7 @@ import { MatListModule } from "@angular/material/list";
 import { ClientDebtComponent } from "../client-debt-component/client-debt-component";
 import { ClientGetLoanComponent } from "../client-get-loan-component/client-get-loan-component";
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-client-form-component',
@@ -76,6 +76,7 @@ export class ClientFormComponent {
   client = signal<ClientInstance>(this.mockedClient);
   loading = this.clientService.loading;
   error = this.clientService.error;
+  isReadOnly = signal<boolean>(true);
 
   constructor() {
     // this.clientService.loadClient('ee7223ba-6c39-4a63-ab58-b04ccc3dca8c');
@@ -92,6 +93,10 @@ export class ClientFormComponent {
       if (result) {
       }
     });
+  }
+
+  changeReadOnlyStatus() {
+    this.isReadOnly.set(!this.isReadOnly());
   }
 }
 

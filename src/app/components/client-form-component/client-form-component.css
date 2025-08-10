@@ -53,3 +53,13 @@
     border-radius: 30px;
     margin-left: 10px;
 }
+
+.button-save {
+    color: #1a237e !important;
+    background-color: #87b0fd !important;
+    font-weight: 600 !important;
+}
+
+.client-information-container {
+    margin-bottom: 50px;
+}

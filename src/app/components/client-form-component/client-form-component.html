@@ -22,23 +22,39 @@
         <mat-card-content class="client-card-content-container">
             <div class="client-card-content-row">
                 <p class="client-data-label">First Name</p>
-                <mat-form-field appearance="fill">
-                    <input matInput [value]="client.firstName" class="client-data" readonly />
+                @if(isReadOnly()) {
+                <p class="client-data-label">{{client.firstName}}</p>
+                }
+                @else {
+                <mat-form-field appearance="fill" class="client-card-content-form">
+                    <input matInput [value]="client.firstName" class="client-data" readonly="{{isReadOnly()}}" />
                 </mat-form-field>
+                }
             </div>
 
             <div class="client-card-content-row">
                 <p class="client-data-label">Last Name</p>
+                @if(isReadOnly()) {
+                <p class="client-data-label">{{client.lastName}}</p>
+                }
+                @else {
                 <mat-form-field appearance="fill">
-                    <input matInput [value]="client.lastName" class="client-data" readonly />
+                    <input matInput [value]="client.lastName" class="client-data" readonly="{{isReadOnly()}}" />
                 </mat-form-field>
+                }
             </div>
 
             <div class="client-card-content-row">
                 <p class="client-data-label">Bank Account Number</p>
+                @if(isReadOnly()) {
+                <p class="client-data-label">{{client.bankAccountNumber}}</p>
+                }
+                @else {
                 <mat-form-field appearance="fill">
-                    <input matInput [value]="client.bankAccountNumber" class="client-data" readonly />
+                    <input matInput [value]="client.bankAccountNumber" class="client-data"
+                        readonly="{{isReadOnly()}}" />
                 </mat-form-field>
+                }
             </div>
 
         </mat-card-content>
@@ -46,7 +62,13 @@
         <mat-card-actions align="end">
             <button matButton="elevated" class="pill-button" mat-flat-button color="primary"
                 (click)="openDebtDialog()">Get Loan 💰 </button>
-            <button matButton="elevated" class="pill-button" mat-flat-button color="primary">Edit</button>
+            @if(isReadOnly()) {
+            <button matButton="elevated" class="pill-button" mat-flat-button color="primary"
+                (click)="changeReadOnlyStatus()">Edit</button>
+            } @else{
+            <button matButton="elevated" class="pill-button button-save" mat-flat-button color="primary"
+                (click)="changeReadOnlyStatus()">Save</button>
+            }
         </mat-card-actions>
     </mat-card>
 

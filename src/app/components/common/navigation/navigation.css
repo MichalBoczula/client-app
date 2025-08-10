@@ -40,3 +40,11 @@
 .navbar-content {
     padding: 10px;
 }
+
+.nav-toggle-button {
+    margin-top: 50px;
+}
+
+.mat-button-toggle-checked {
+    background-color: #81b9f1 !important;
+}
