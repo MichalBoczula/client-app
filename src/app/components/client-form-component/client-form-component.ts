@@ -51,6 +51,10 @@ export class ClientFormComponent implements OnInit {
       data: { id: id }
     }).afterClosed().subscribe(result => {
       if (result) {
+        const clientId = this.route.snapshot.paramMap.get('id');
+        if (clientId) {
+          this.clientService.loadClient(clientId);
+        }
       }
     });
   }

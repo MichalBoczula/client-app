@@ -45,7 +45,7 @@ export class ClientGetLoanComponent implements OnInit {
     };
 
     this.clientService.addDebt(this.data.id, payload).subscribe({
-      next: () => this.ref.close(payload),
+      next: () => this.ref.close(true),
       error: err => {
         console.error(err);
       }
