@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ClientInstance } from '../models/client-instance.model';
 import { catchError, finalize, throwError } from 'rxjs';
 import { CreateDebtDto } from '../dto/createDebtDto.dto';
+import { UpdateClientDto } from '../dto/updateClientDto.dto';
 
 @Injectable({ providedIn: 'root' })
 export class ClientService {
@@ -30,6 +31,20 @@ export class ClientService {
         this.error.set(null);
 
         return this.http.put<void>(`${this.base}/clients/${clientId}/debts`, body)
+            .pipe(
+                finalize(() => this.loading.set(false)),
+                catchError(err => {
+                    this.error.set(err);
+                    return throwError(() => err);
+                })
+            );
+    }
+
+    editClientData(clientId: string, body: UpdateClientDto) {
+        this.loading.set(true);
+        this.error.set(null);
+
+        return this.http.put<void>(`${this.base}/clients/${clientId}`, body)
             .pipe(
                 finalize(() => this.loading.set(false)),
                 catchError(err => {

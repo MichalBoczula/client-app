@@ -20,8 +20,6 @@ export class ClientGetLoanComponent implements OnInit {
   private readonly clientService = inject(ClientService);
 
   data = inject(MAT_DIALOG_DATA) as { id: string };
-  amount: number | null = null;
-  dueDate: string | null = null;
 
   form = new FormGroup({
     amount: new FormControl<number | null>(null, {
