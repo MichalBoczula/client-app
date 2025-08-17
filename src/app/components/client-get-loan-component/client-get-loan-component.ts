@@ -41,7 +41,6 @@ export class ClientGetLoanComponent implements OnInit {
       amount: this.form.value.amount!,
       dueDate: this.form.value.dueDate!
     };
-
     this.clientService.addDebt(this.data.id, payload).subscribe({
       next: () => this.ref.close(true),
       error: err => {

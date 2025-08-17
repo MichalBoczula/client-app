@@ -4,6 +4,7 @@ import { ClientInstance } from '../models/client-instance.model';
 import { catchError, finalize, throwError } from 'rxjs';
 import { CreateDebtDto } from '../dto/createDebtDto.dto';
 import { UpdateClientDto } from '../dto/updateClientDto.dto';
+import { CreatePaymentDto } from '../dto/createPaymentDto.dto';
 
 @Injectable({ providedIn: 'root' })
 export class ClientService {
@@ -45,6 +46,20 @@ export class ClientService {
         this.error.set(null);
 
         return this.http.put<void>(`${this.base}/clients/${clientId}`, body)
+            .pipe(
+                finalize(() => this.loading.set(false)),
+                catchError(err => {
+                    this.error.set(err);
+                    return throwError(() => err);
+                })
+            );
+    }
+
+    addPaymentToDebt(clientId: string, debtId: string, body: CreatePaymentDto) {
+        this.loading.set(true);
+        this.error.set(null);
+
+        return this.http.put<void>(`${this.base}/clients/${clientId}/debts/${debtId}/payments`, body)
             .pipe(
                 finalize(() => this.loading.set(false)),
                 catchError(err => {
