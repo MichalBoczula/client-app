@@ -5,11 +5,13 @@ import { catchError, finalize, throwError } from 'rxjs';
 import { CreateDebtDto } from '../dto/createDebtDto.dto';
 import { UpdateClientDto } from '../dto/updateClientDto.dto';
 import { CreatePaymentDto } from '../dto/createPaymentDto.dto';
+import { ConfigService } from '../config.service';
 
 @Injectable({ providedIn: 'root' })
 export class ClientService {
     private http = inject(HttpClient);
-    private base = 'http://localhost:5123';
+    private cfg = inject(ConfigService);
+    private get base() { console.log(this.cfg); return this.cfg.apiBaseUrl; }
 
     client = signal<ClientInstance | undefined>(undefined);
     loading = signal(false);
